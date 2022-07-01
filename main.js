@@ -26,6 +26,18 @@ const pAequorFactory = (specimenNum, dna) => {
     this.dna[randomIndex] = newBase;
       return this.dna;
     },
+    compareDNA(otherOrg) {
+      const similarities = this.dna.reduce((acc, curr, idx, arr) => {
+        if (arr[idx] === otherOrg.dna[idx]) {
+          return acc + 1;
+        } else {
+          return acc;
+        }
+      }, 0);
+      const percentOfDNAshared = (similarities / this.dna.length) * 100;
+      const percentageTo2Deci = percentOfDNAshared.toFixed(2);
+      console.log(`${this.specimenNum} and ${otherOrg.specimenNum} have ${percentageTo2Deci}% DNA in common.`);
+    },
   }
 }
 
