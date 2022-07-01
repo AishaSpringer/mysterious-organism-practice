@@ -38,6 +38,10 @@ const pAequorFactory = (specimenNum, dna) => {
       const percentageTo2Deci = percentOfDNAshared.toFixed(2);
       console.log(`${this.specimenNum} and ${otherOrg.specimenNum} have ${percentageTo2Deci}% DNA in common.`);
     },
+    willLikelySurvive() {
+      const cOrG = this.dna.filter(el => el === "C" || el === "G");
+      return cOrG.length / this.dna.length >= 0.6;
+    },
   }
 }
 
